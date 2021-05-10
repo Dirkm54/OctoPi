@@ -257,7 +257,7 @@ pi@octopi:~ $ cd LCD-show/
 pi@octopi:~/LCD-show $ sudo ./LCD35-show
 ````
 ### Chromium installeren
-Log in op de raspberry en voer de onderstaande commando's uit:
+Log in op de Raspberry Pi en voer de onderstaande commando's uit:
 Bewerk het bestand sources.list
 ````
 pi@octopi:~ $ sudo nano /etc/apt/sources.list
@@ -278,7 +278,7 @@ pi@octopi:~ $ sudo apt update
 pi@octopi:~ $ sudo apt install chromium-browser
 ````
 Nadat de installatie is voltooid en de Raspberry Pi is herstart zal de browser verschijnen in de map: Menu > Internet en kun je deze gebruiken om te browsen over het internet.
-OctoPi in Chromium in kiosk mode starten
+### OctoPi in Chromium in kiosk mode starten
 Maak een map om er een script in te plaatsen
 ````
 pi@octopi:~ $ mkdir .local/bin
@@ -314,8 +314,36 @@ Herstart de Raspberry Pi:
 ````
 pi@octopi:~ $ sudo shutdown -r now
 ````
-
-
+## Installatie MJPEG streamer
+Om het beeld van de camera weer te geven kan er met de browser naar het ip adres van de Rasberry Pi gesurft worden. Gebruik volgende IP: http://octopi.local/webcam/?action=stream
+Indien er een foutmelding weergegeven wordt, moet de MJPEG streamer geïnstalleerd worden.
+````
+pi@octopi:~ $ sudo apt-get update
+pi@octopi:~ $ sudo apt-get install libv4l-dev libjpeg8-dev subversion imagemagick
+````
+Voeg het ontbrekend videodev.h toe.
+````
+pi@octopi:~ $ sudo ln -s /usr/include/linux/videodev2.h /usr/include/linux/videodev.h
+````
+Haal de Mjpeg broncode op
+````
+pi@octopi:~ $ svn co https://svn.code.sf.net/p/mjpg-streamer/code/mjpg-streamer/ mjpg-streamer
+````
+Compileer de code
+````
+pi@octopi:~ $ cd mjpg-streamer/
+pi@octopi:~ $ make USE_LIBV4L2=true clean all
+pi@octopi:~ $ sudo make DESTDIR=/usr install
+````
+Kopieer het resultaat naar de juiste plaats
+````
+pi@octopi:~ $ sudo cp mjpg_streamer /usr/local/bin
+pi@octopi:~ $ sudo cp -R www /usr/local/www
+````
+Herstart de Raspberry Pi
+````
+pi@octopi:~ $ sudo reboot
+````
 
 
 
