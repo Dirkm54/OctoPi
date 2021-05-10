@@ -54,6 +54,39 @@ En moet er nog een lijn toegevoegd worden (net voor of net na de vorige lijn)
 ````
 Country=BE # Belgium
 ````
+### Camera configureren
+Om de camera te configureren kan het bestand octopi.txt aangepast worden. Gebruik ook hiervoor Notepad++.
+Pas het bestand aan door de vetgedrukte lijnen bij te voegen. Daardoor wordt de Raspi Camera gebruikt met een resolutie van 1280 x 720 pixels
+````
+### Configure which camera to use
+#
+# Available options are:
+# - auto: tries first usb webcam, if that's not available tries raspi cam
+# - usb: only tries usb webcam
+# - raspi: only tries raspi cam
+#
+# Defaults to auto
+#
+**camera="raspi"**
+
+### Additional options to supply to MJPG Streamer for the USB camera
+#
+# See https://github.com/foosel/OctoPrint/wiki/MJPG-Streamer-configuration
+# for available options
+#
+# Defaults to a resolution of 640x480 px and a framerate of 10 fps
+#
+#camera_usb_options="-r 640x480 -f 10"
+
+### additional options to supply to MJPG Streamer for the RasPi Cam
+#
+# See https://github.com/foosel/OctoPrint/wiki/MJPG-Streamer-configuration
+# for available options
+#
+# Defaults to 10fps
+#
+**camera_raspi_options="-x 1280 -y 720 -fps 20 -br 100 -ex night"**
+````
 
 
 [link to Mardown!]https://guides.github.com/features/mastering-markdown/
