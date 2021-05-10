@@ -68,7 +68,7 @@ Pas het bestand aan door de vetgedrukte lijnen bij te voegen. Daardoor wordt de 
 # Defaults to auto
 #
 ````
-Voeg nu de volgende regel toe:
+Voeg nu de volgende regel toe om een camera aangeloten op de CSI poort te gebruiken:
 ````
 camera="raspi"
 ````
@@ -95,6 +95,29 @@ camera="raspi"
 Voeg hier ook nog deze regel toe om de resolutie te bepalen:
 ````
 camera_raspi_options="-x 1280 -y 720 -fps 20 -br 100 -ex night"
+````
+
+### Paswoord aanpassen
+Plaats de microSD kaart in de Raspberry Pi.
+Verbind de netwerkkabel met de Raspberry Pi, of maak gebruik van de WiFi verbinding.
+Koppel de voeding aan de Raspberri Pi.
+SSH naar de Raspberry Pi:
+````
+SSH pi@octopi.local
+````
+Geef het paswoord op: 
+````
+raspberry
+````
+Of
+Wijzig het paswoord
+````
+pi@octopi:~ $ passwd
+Changing password for pi.
+Current password: raspberry
+New password: new_password
+Retype password: new_password
+passwd: password updated succesfully
 ````
 
 
