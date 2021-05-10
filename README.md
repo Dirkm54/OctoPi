@@ -179,6 +179,145 @@ Bij de configuratie moeten we rekening houden met de werking van touch-interface
 Klik daartoe op het sleutel-icoon.
 In de configuratielijst, klik op “OctoRelay”.
 Pas de configuratie aan.
+## Inloggen op de webserver van de OctoPi.
+Gebruik de webbrowser om naar de Octopi te browsen:
+````
+http://octopi.local
+````
+Geef de gebruikersnaam en paswoord in die bepaald werd bij de installatiewizzard.
+## Installatie van de grafische omgeving
+### Installatie Desktop Environment
+Om het TouchUI scherm weer te geven op het klein aanraakschermpje moet op de Raspberry Pi de “Desktop environment” geïnstalleerd worden.
+Daartoe moet er ingelogd worden op de Raspberry Pi. Dit kan via het aanraakschermpje, of via een terminal (ssh). Gebruik volgende inloggegevens:
+````
+Login: pi
+Password: new_password
+````
+Voer volgende commando in:
+````
+pi@octopi:~ $ sudo /home/pi/scripts/install-desktop
+[sudo] password for pi: new_password
+
+This will install the desktop environment on your Pi
+Please keep in mind that the desktop environment needs
+system resources that then might not be available for
+printing, possible leading to print artifacts.
+It is not recommended to run the desktop environment
+alongside OctoPrint if you do not have a Pi with
+multiple cores (e.g. Pi1 or PiZero). Even then, use
+at your own risk.
+
+If you do not want to install the desktop environment
+after all, please hit Ctrl+C now.
+
+Press any key to continue or Ctrl+C to exit...
+````
+Klik op Enter om door te gaan.
+Daarna nog **yes** ingeven om te bevestigen:
+````
+type ‘yes’ now. Type ‘no’ if not.
+Finish with ENTER:yes
+````
+De desktop environment wordt geïnstalleerd.
+Waarna een herstart noodzakelijk is:
+````
+pi@octopi:~ $ sudo reboot
+````
+Daarna terug ssh naar de raspberry pi:
+````
+ssh pi@octopi.local
+pi@octopi.local's password: new_password
+````
+Installeer een desktop manager
+````
+pi@octopi:~ $ sudo apt-get install lightdm
+````
+### Installatie van X server
+We kunnen nu de 3D printer monitoren vanaf een webbrowser. Om dit ook op de Raspberry Pi te kunnen weergeven moeten we nog eerst een grafische omgeving installeren: X-Server
+
+Installeer de X-server
+````
+pi@octopi:~ $ sudo apt-get install --no-install-recommends xserver-xorg
+````
+Zorg ervoor dat de x-server automatisch start
+````
+pi@octopi:~ $ sudo apt-get install --no-install-recommends xinit
+````
+Installeer de Raspberry Pi desktop
+````
+pi@octopi:~ $ sudo apt-get install raspberrypi-ui-mods
+````
+### Schermdriver installeren
+Na installatie van de X-server zal de schermdriver opnieuw geïnstalleerd moeten worden.
+````
+pi@octopi:~ $ sudo rm -rf LCD-show
+pi@octopi:~ $ git clone https://github.com/goodtft/LCD-show.git
+pi@octopi:~ $ chmod -R 755 LCD-show
+pi@octopi:~ $ cd LCD-show/
+pi@octopi:~/LCD-show $ sudo ./LCD35-show
+````
+### Chromium installeren
+Log in op de raspberry en voer de onderstaande commando's uit:
+Bewerk het bestand sources.list
+````
+pi@octopi:~ $ sudo nano /etc/apt/sources.list
+````
+Voeg de onderstaande twee regels toe aan het bestand:
+````
+deb http://ppa.launchpad.net/canonical-chromium-builds/stage/ubuntu vivid main
+#deb-src http://ppa.launchpad.net/canonical-chromium-builds/stage/ubuntu vivid main
+````
+Bewaar de wijzigingen met ctrl+X, Y, en enter
+Voeg de APT key toe:
+````
+pi@octopi:~ $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys DB69B232436DAC4B50BDC59E4E1B983C5B393194
+````
+Installeer het chromium browser package:
+````
+pi@octopi:~ $ sudo apt update
+pi@octopi:~ $ sudo apt install chromium-browser
+````
+Nadat de installatie is voltooid en de Raspberry Pi is herstart zal de browser verschijnen in de map: Menu > Internet en kun je deze gebruiken om te browsen over het internet.
+OctoPi in Chromium in kiosk mode starten
+Maak een map om er een script in te plaatsen
+````
+pi@octopi:~ $ mkdir .local/bin
+````
+Maak het script
+````
+pi@octopi:~ $ nano .local/bin/octostart.sh
+````
+Plaats daarin het volgende:
+````
+#!/bin/bash
+/usr/bin/chromium-browser --kiosk http://octopi.local
+````
+Sla dit op: ctrl-O, bevestig, en sluit af met ctrl-X
+
+Het bestand moet dan nog uitvoerbaar gemaakt worden:
+````
+pi@octopi:~ $ chmod +x .local/bin/octostart.sh
+````
+Het script moet nu uitgevoerd worden bij het opstarten van de Raspberry Pi.
+Dit wordt gedaan door een .desktop bestand aan te maken, waarin verwezen wordt naar het script. Dit bestand moet dan in de autostart map komen:
+````
+pi@octopi:~ $ mkdir .config/autostart
+pi@octopi:~ $ nano .config/autostart/octostart.desktop
+````
+Plaats daarin de volgende inhoud:
+````
+[Desktop Entry]
+Type=Application
+Exec=/home/pi/.local/bin/octostart.sh
+````
+Herstart de Raspberry Pi:
+````
+pi@octopi:~ $ sudo shutdown -r now
+````
+
+
+
+
 
 
 [link to Mardown!]https://guides.github.com/features/mastering-markdown/
