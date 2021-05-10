@@ -18,11 +18,10 @@ OctoPrint om op een **Raspberry Pi** te laten werken.
 Informatie kan op de volgende locaties gevonden worden:
 * OctoPi image download:https://github.com/guysoft/OctoPi
 * Hoe OctoPi installeren
-''''
-https://www.electromaker.io/tutorial/blog/setup-octoprint-for-the-anet-a8-with-a-raspberry-pi
-https://all3dp.com/2/octoprint-on-anet-a8-how-to-get-started/
-https://www.youtube.com/watch?v=thQ3PdLxqe8
-https://community.octoprint.org/t/octoscreen-a-new-software-to-use-octoprint-with-lcd/10629
-''''
+  * https://www.electromaker.io/tutorial/blog/setup-octoprint-for-the-anet-a8-with-a-raspberry-pi
+  * https://all3dp.com/2/octoprint-on-anet-a8-how-to-get-started/
+  * https://www.youtube.com/watch?v=thQ3PdLxqe8
+  * https://community.octoprint.org/t/octoscreen-a-new-software-to-use-octoprint-with-lcd/10629
+
 
 [link to Mardown!]https://guides.github.com/features/mastering-markdown/
