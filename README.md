@@ -109,7 +109,6 @@ Geef het paswoord op:
 ````
 raspberry
 ````
-Of
 Wijzig het paswoord
 ````
 pi@octopi:~ $ passwd
@@ -119,6 +118,45 @@ New password: new_password
 Retype password: new_password
 passwd: password updated succesfully
 ````
+### Update installeren
+Controleer de huidige Linux versie:
+````
+pi@octopi:~ $ uname -sr
+Linux 5.4.79-v7l+
+````
+Controleer welke updates er beschikbaar zijn:
+````
+pi@octopi:~ $ sudo apt-get update
+````
+Installeer de updates:
+````
+pi@octopi:~ $ sudo apt-get upgrade
+````
+Herstart de Raspberry Pi:
+````
+pi@octopi:~ $ sudo shutdown -r now
+````
+of
+````
+pi@octopi:~ $ sudo reboot
+````
+### Schermdriver installeren
+Om het aanraakscherm te kunnen gebruiken moet er eerst een driver geïnstalleerd worden.
+Tik volgende commando’s in:
+````
+pi@octopi:~ $ sudo rm -rf LCD-show
+pi@octopi:~ $ git clone https://github.com/goodtft/LCD-show.git
+pi@octopi:~ $ chmod -R 755 LCD-show
+pi@octopi:~ $ cd LCD-show/
+pi@octopi:~/LCD-show $ sudo ./LCD35-show
+````
+Bovenstaande commando’s doen het volgende:
+* Indien er reeds een driver geïnstalleerd was, dan wordt die verwijderd.
+* De nieuwe schermdriver wordt gedownload en geïnstalleerd.
+* De schermdriver wordt uitvoerbaar gemaakt, en kan ook beschreven worden door de eigenaar (pi).
+* Wijzig de actieve directory.
+* Start de schermdriver.
+
 
 
 [link to Mardown!]https://guides.github.com/features/mastering-markdown/
