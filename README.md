@@ -156,6 +156,8 @@ Bovenstaande commando’s doen het volgende:
 * De schermdriver wordt uitvoerbaar gemaakt, en kan ook beschreven worden door de eigenaar (pi).
 * Wijzig de actieve directory.
 * Start de schermdriver.
+## OctoPi configuratie
+Open de browser, en navigeer naar http://octopi.local.
 
 
 
