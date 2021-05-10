@@ -4,7 +4,7 @@ OctoPrint om op een **Raspberry Pi** te laten werken.
 ![Image of Yaktocat](/Images/Screenshot%202021-02-08%20at%2018.14.56.png)
 
 ## Benodigde onderdelen
-* 3D Printer (deuh)
+* 3D Printer
 * Raspberry Pi 3 of 4
 * Een microSD kaart van 8 GB, of meer indien timelapse beelden moeten opgenomen worden
 * Een USB kabel om de Raspberry Pi te verbinden met de 3D printer
