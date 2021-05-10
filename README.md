@@ -344,16 +344,3 @@ Herstart de Raspberry Pi
 ````
 pi@octopi:~ $ sudo reboot
 ````
- 
- 
- 
- 
-  
-  
-  
-  
-  
-  
-  
-  
-[link to Mardown!]https://guides.github.com/features/mastering-markdown/
