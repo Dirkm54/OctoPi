@@ -67,8 +67,13 @@ Pas het bestand aan door de vetgedrukte lijnen bij te voegen. Daardoor wordt de 
 #
 # Defaults to auto
 #
-**camera="raspi"**
+````
+Voeg nu de volgende regel toe:
+````
+camera="raspi"
+````
 
+````
 ### Additional options to supply to MJPG Streamer for the USB camera
 #
 # See https://github.com/foosel/OctoPrint/wiki/MJPG-Streamer-configuration
@@ -85,7 +90,11 @@ Pas het bestand aan door de vetgedrukte lijnen bij te voegen. Daardoor wordt de 
 #
 # Defaults to 10fps
 #
-**camera_raspi_options="-x 1280 -y 720 -fps 20 -br 100 -ex night"**
+````
+
+Voeg hier ook nog deze regel toe om de resolutie te bepalen:
+````
+camera_raspi_options="-x 1280 -y 720 -fps 20 -br 100 -ex night"
 ````
 
 
