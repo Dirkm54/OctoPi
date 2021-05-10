@@ -16,7 +16,7 @@ OctoPrint om op een **Raspberry Pi** te laten werken.
 
 ## Info
 Informatie kan op de volgende locaties gevonden worden:
-* OctoPi image download:https://github.com/guysoft/OctoPi
+* OctoPi image download: https://github.com/guysoft/OctoPi
 * Hoe OctoPi installeren
   * https://www.electromaker.io/tutorial/blog/setup-octoprint-for-the-anet-a8-with-a-raspberry-pi
   * https://all3dp.com/2/octoprint-on-anet-a8-how-to-get-started/
@@ -157,8 +157,28 @@ Bovenstaande commando’s doen het volgende:
 * Wijzig de actieve directory.
 * Start de schermdriver.
 ## OctoPi configuratie
-Open de browser, en navigeer naar http://octopi.local.
-
+Open de browser, en navigeer naar http://octopi.local
+Doorloop de stappen van de wizzard
+### Installeren van de TouchUI user interface
+De opbouw van het scherm is beter geschikt voor kleinere schermen
+Om een plug-in te installeren klik op het sleutel-icoon bovenaan het hoofdvenster
+Selecteer in de linker kolom **Plugin Manager**
+Klik daarna op **Get more...**
+Tik een zoekwoord (TouchUI) in om de lijst in te korten
+Klik dan op **Install** van de plugin om deze te installeren
+Herstart daarna de Raspberry Pi
+````
+pi@octopi:~ $ sudo reboot
+````
+### Installeren van OctoRelay
+Bij de configuratie moeten we rekening houden met de werking van touch-interface van het schermpje, die ook enkele GPIO pinnen gebruikt
+* Relay 1 (Light) wordt aangestuurd door GPIO 4. Dit wordt GPIO 5.
+* Relay 2 (Printer) wordt aangestuurd door GPIO 17. Dit wordt GPIO 6.
+* Relay 3 (Fan) wordt aangestuurd door GPIO 18. Dit wordt GPIO 13.
+* Relay 4 wordt niet gebruikt.
+Klik daartoe op het sleutel-icoon.
+In de configuratielijst, klik op “OctoRelay”.
+Pas de configuratie aan.
 
 
 [link to Mardown!]https://guides.github.com/features/mastering-markdown/
