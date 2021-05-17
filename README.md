@@ -92,8 +92,8 @@ passwd: password updated succesfully
 ````
 sudo raspi-config
 ````
-Gebruik 3 Interface Options.
-Daarna P1 Camera, en bevestig met YES.
+Gebruik `3 Interface Options`.
+Daarna `P1 Camera`, en bevestig met `YES`.
 
 ### Update installeren
 Controleer de huidige Linux versie:
