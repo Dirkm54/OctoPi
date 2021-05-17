@@ -134,16 +134,16 @@ Bovenstaande commando’s doen het volgende:
 * Wijzig de actieve directory.
 * Start de schermdriver.
 ## OctoPi configuratie
-Open de browser, en navigeer naar http://octopi.local
-Doorloop de stappen van de wizzard
+Open de browser, en navigeer naar http://octopi.local.
+Doorloop de stappen van de wizzard.
 ### Installeren van de TouchUI user interface
-De opbouw van het scherm is beter geschikt voor kleinere schermen
-Om een plug-in te installeren klik op het sleutel-icoon bovenaan het hoofdvenster
+De opbouw van het scherm is beter geschikt voor kleinere schermen.
+Om een plug-in te installeren klik op het sleutel-icoon bovenaan het hoofdvenster.
 Selecteer in de linker kolom **Plugin Manager**
 Klik daarna op **Get more...**
-Tik een zoekwoord (TouchUI) in om de lijst in te korten
-Klik dan op **Install** van de plugin om deze te installeren
-Herstart daarna de Raspberry Pi
+Tik een zoekwoord (TouchUI) in om de lijst in te korten.
+Klik dan op **Install** van de plugin om deze te installeren.
+Herstart daarna de Raspberry Pi.
 ````
 pi@octopi:~ $ sudo reboot
 ````
