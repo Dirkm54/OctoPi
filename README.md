@@ -56,45 +56,15 @@ Country=BE # Belgium
 ````
 ### Camera configureren
 Om de camera te configureren kan het bestand octopi.txt aangepast worden. Gebruik ook hiervoor Notepad++.
-Pas het bestand aan door de vetgedrukte lijnen bij te voegen. Daardoor wordt de Raspi Camera gebruikt met een resolutie van 1280 x 720 pixels
-````
-### Configure which camera to use
-#
-# Available options are:
-# - auto: tries first usb webcam, if that's not available tries raspi cam
-# - usb: only tries usb webcam
-# - raspi: only tries raspi cam
-#
-# Defaults to auto
-#
-````
-Voeg nu de volgende regel toe om een camera aangeloten op de CSI poort te gebruiken:
+Pas het bestand aan door de onderstaande lijnen bij te voegen.
 ````
 camera="raspi"
-````
-
-````
-### Additional options to supply to MJPG Streamer for the USB camera
-#
-# See https://github.com/foosel/OctoPrint/wiki/MJPG-Streamer-configuration
-# for available options
-#
-# Defaults to a resolution of 640x480 px and a framerate of 10 fps
-#
-#camera_usb_options="-r 640x480 -f 10"
-
-### additional options to supply to MJPG Streamer for the RasPi Cam
-#
-# See https://github.com/foosel/OctoPrint/wiki/MJPG-Streamer-configuration
-# for available options
-#
-# Defaults to 10fps
-#
-````
-
-Voeg hier ook nog deze regel toe om de resolutie te bepalen:
-````
-camera_raspi_options="-x 1280 -y 720 -fps 20 -br 100 -ex night"
+camera_usb_options="-r 640x480 -f 10"
+camera_raspi_options="-fps 10"
+   -o "output_http.so -w $camera_http_webroot $camera_http_options"
+camera_http_webroot="./www-octopi"
+camera_http_options="-n"
+camera_streamer=mjpeg
 ````
 
 ### Paswoord aanpassen
@@ -118,6 +88,13 @@ New password: new_password
 Retype password: new_password
 passwd: password updated succesfully
 ````
+### Camera activeren
+````
+sudo raspi-config
+````
+Gebruik 3 Interface Options
+Daarna P1 Camera, en bevestig met YES
+
 ### Update installeren
 Controleer de huidige Linux versie:
 ````
