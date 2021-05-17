@@ -66,6 +66,15 @@ camera_http_webroot="./www-octopi"
 camera_http_options="-n"
 camera_streamer=mjpeg
 ````
+### Camera controleren
+Controleer of de camera herkent wordt:
+````
+pi@octopi:~ $ vcgencmd get_camera
+````
+Dit moet het volgende tonen bij succesvolle detectie
+````
+supported=1 detected=1
+````
 
 ### Paswoord aanpassen
 Plaats de microSD kaart in de Raspberry Pi.
