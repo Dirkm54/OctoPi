@@ -126,22 +126,6 @@ of
 ````
 pi@octopi:~ $ sudo reboot
 ````
-### Schermdriver installeren
-Om het aanraakscherm te kunnen gebruiken moet er eerst een driver geïnstalleerd worden.
-Tik volgende commando’s in:
-````
-pi@octopi:~ $ sudo rm -rf LCD-show
-pi@octopi:~ $ git clone https://github.com/goodtft/LCD-show.git
-pi@octopi:~ $ chmod -R 755 LCD-show
-pi@octopi:~ $ cd LCD-show/
-pi@octopi:~/LCD-show $ sudo ./LCD35-show
-````
-Bovenstaande commando’s doen het volgende:
-* Indien er reeds een driver geïnstalleerd was, dan wordt die verwijderd.
-* De nieuwe schermdriver wordt gedownload en geïnstalleerd.
-* De schermdriver wordt uitvoerbaar gemaakt, en kan ook beschreven worden door de eigenaar (pi).
-* Wijzig de actieve directory.
-* Start de schermdriver.
 ## OctoPi configuratie
 Open de browser, en navigeer naar http://octopi.local.
 Doorloop de stappen van de wizzard.
@@ -215,7 +199,8 @@ ssh pi@octopi.local
 pi@octopi.local's password: new_password
 ````
 ### Schermdriver installeren
-Na installatie van de desktp zal de schermdriver opnieuw geïnstalleerd moeten worden.
+Om het aanraakscherm te kunnen gebruiken moet er eerst een driver geïnstalleerd worden.
+Tik volgende commando’s in:
 ````
 pi@octopi:~ $ sudo rm -rf LCD-show
 pi@octopi:~ $ git clone https://github.com/goodtft/LCD-show.git
@@ -223,6 +208,12 @@ pi@octopi:~ $ chmod -R 755 LCD-show
 pi@octopi:~ $ cd LCD-show/
 pi@octopi:~/LCD-show $ sudo ./LCD35-show
 ````
+Bovenstaande commando’s doen het volgende:
+* Indien er reeds een driver geïnstalleerd was, dan wordt die verwijderd.
+* De nieuwe schermdriver wordt gedownload en geïnstalleerd.
+* De schermdriver wordt uitvoerbaar gemaakt, en kan ook beschreven worden door de eigenaar (pi).
+* Wijzig de actieve directory.
+* Start de schermdriver.
 Na installatie van de schermdriver wordt er automatisch gereboot.
 
 ### Chromium installeren
