@@ -189,8 +189,8 @@ after all, please hit Ctrl+C now.
 
 Press any key to continue or Ctrl+C to exit...
 ````
-Klik op Enter om door te gaan.
-Daarna nog **yes** ingeven om te bevestigen:
+Klik op `Enter` om door te gaan.
+Daarna nog `yes` ingeven om te bevestigen:
 ````
 type ‘yes’ now. Type ‘no’ if not.
 Finish with ENTER:yes
@@ -205,27 +205,8 @@ Daarna terug ssh naar de raspberry pi:
 ssh pi@octopi.local
 pi@octopi.local's password: new_password
 ````
-Installeer een desktop manager
-````
-pi@octopi:~ $ sudo apt-get install lightdm
-````
-### Installatie van X server
-We kunnen nu de 3D printer monitoren vanaf een webbrowser. Om dit ook op de Raspberry Pi te kunnen weergeven moeten we nog eerst een grafische omgeving installeren: X-Server
-
-Installeer de X-server
-````
-pi@octopi:~ $ sudo apt-get install --no-install-recommends xserver-xorg
-````
-Zorg ervoor dat de x-server automatisch start
-````
-pi@octopi:~ $ sudo apt-get install --no-install-recommends xinit
-````
-Installeer de Raspberry Pi desktop
-````
-pi@octopi:~ $ sudo apt-get install raspberrypi-ui-mods
-````
 ### Schermdriver installeren
-Na installatie van de X-server zal de schermdriver opnieuw geïnstalleerd moeten worden.
+Na installatie van de desktp zal de schermdriver opnieuw geïnstalleerd moeten worden.
 ````
 pi@octopi:~ $ sudo rm -rf LCD-show
 pi@octopi:~ $ git clone https://github.com/goodtft/LCD-show.git
@@ -233,8 +214,10 @@ pi@octopi:~ $ chmod -R 755 LCD-show
 pi@octopi:~ $ cd LCD-show/
 pi@octopi:~/LCD-show $ sudo ./LCD35-show
 ````
+Na installatie van de schermdriver wordt er automatisch gereboot.
+
 ### Chromium installeren
-Log in op de Raspberry Pi en voer de onderstaande commando's uit:
+Log in (ssh) op de Raspberry Pi en voer de onderstaande commando's uit:
 Bewerk het bestand sources.list
 ````
 pi@octopi:~ $ sudo nano /etc/apt/sources.list
@@ -290,34 +273,4 @@ Exec=/home/pi/.local/bin/octostart.sh
 Herstart de Raspberry Pi:
 ````
 pi@octopi:~ $ sudo shutdown -r now
-````
-## Installatie MJPEG streamer
-Om het beeld van de camera weer te geven kan er met de browser naar het ip adres van de Rasberry Pi gesurft worden. Gebruik volgende IP: http://octopi.local/webcam/?action=stream
-Indien er een foutmelding weergegeven wordt, moet de MJPEG streamer geïnstalleerd worden.
-````
-pi@octopi:~ $ sudo apt-get update
-pi@octopi:~ $ sudo apt-get install libv4l-dev libjpeg8-dev subversion imagemagick
-````
-Voeg het ontbrekend videodev.h toe.
-````
-pi@octopi:~ $ sudo ln -s /usr/include/linux/videodev2.h /usr/include/linux/videodev.h
-````
-Haal de Mjpeg broncode op
-````
-pi@octopi:~ $ svn co https://svn.code.sf.net/p/mjpg-streamer/code/mjpg-streamer/ mjpg-streamer
-````
-Compileer de code
-````
-pi@octopi:~ $ cd mjpg-streamer/
-pi@octopi:~ $ make USE_LIBV4L2=true clean all
-pi@octopi:~ $ sudo make DESTDIR=/usr install
-````
-Kopieer het resultaat naar de juiste plaats
-````
-pi@octopi:~ $ sudo cp mjpg_streamer /usr/local/bin
-pi@octopi:~ $ sudo cp -R www /usr/local/www
-````
-Herstart de Raspberry Pi
-````
-pi@octopi:~ $ sudo reboot
 ````
