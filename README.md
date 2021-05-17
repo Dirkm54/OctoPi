@@ -55,7 +55,7 @@ En moet er nog een lijn toegevoegd worden (net voor of net na de vorige lijn)
 Country=BE # Belgium
 ````
 ### Camera configureren
-Om de camera te configureren kan het bestand octopi.txt aangepast worden. Gebruik ook hiervoor Notepad++.
+Om de camera te configureren kan het bestand **octopi.txt** aangepast worden. Gebruik ook hiervoor Notepad++.
 Pas het bestand aan door de onderstaande lijnen bij te voegen.
 ````
 camera="raspi"
