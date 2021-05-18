@@ -1,7 +1,7 @@
 # OctoPi
 
 OctoPrint om op een **Raspberry Pi** te laten werken.
-![Image of Yaktocat](/Images/Screenshot%202021-02-08%20at%2018.14.56.png)
+![Image of OctoPrint](/Images/Screenshot%202021-02-08%20at%2018.14.56.png)
 
 ## Benodigde onderdelen
 * 3D Printer
@@ -274,3 +274,4 @@ Herstart de Raspberry Pi:
 ````
 pi@octopi:~ $ sudo shutdown -r now
 ````
+![Image of Octopi](/Images/Octopi.jpg)
